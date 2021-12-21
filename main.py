@@ -1,11 +1,14 @@
 import discord
 import random
-token = "OTIyOTIzMzY5MDk4MjY0NjY2.YcIhXg.hIREGTPxeaFgefgY6iPnpImR-p0"
-
+config = {}
+import json
+with open("config.json", "r") as f:
+    config.update(json.load(f))
 client = discord.Client()
 themes = ['Wet Wednesday', 'Thirsty Thursday',
           'Fuck me Friday', 'Taco Tuesday', 'Manhood Monday', 'Sexy Saturday', 'Sensuous Sunday']
 todays_theme = ""
+token = config['token']
 @client.event
 async def on_message(message):
     if message.author == client.user:
